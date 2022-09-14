@@ -1,0 +1,51 @@
+/*========================================================================
+                 Obtener Eventos 
+========================================================================*/
+###
+GET http://localhost:4001/api/events/ HTTP/1.1
+Content-Type: application/json
+x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzA1OGY0MWI4MmFmOGZkY2M2ZmU1ODgiLCJuYW1lIjoiTWlndWVsIEFuZ2VsIiwiaWF0IjoxNjYxMzc4NDc2LCJleHAiOjE2NjEzODU2NzZ9.411sD2DGTKW6cNgXWs9UNU2Fmkg3rGHLtcdu1HvNViQ
+
+
+
+###
+/*========================================================================
+                 Crear Eventos 
+========================================================================*/
+###
+POST  http://localhost:4001/api/events/ HTTP/1.1
+Content-Type: application/json
+x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzA1OGY0MWI4MmFmOGZkY2M2ZmU1ODgiLCJuYW1lIjoiTWlndWVsIEFuZ2VsIiwiaWF0IjoxNjYxMzc4NDc2LCJleHAiOjE2NjEzODU2NzZ9.411sD2DGTKW6cNgXWs9UNU2Fmkg3rGHLtcdu1HvNViQ
+
+{
+  "title": "Colocar agua para tesito",
+  "start": 2000000,
+  "end": 3000000,
+  "notes": "pendiente"
+}
+
+
+###
+/*========================================================================
+                  Actualizar Eventos 
+========================================================================*/
+###
+PUT http://localhost:4001/api/events/6306a01ad01f4d1383f6c500 HTTP/1.1
+Content-Type: application/json
+x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzA1OGY0MWI4MmFmOGZkY2M2ZmU1ODgiLCJuYW1lIjoiTWlndWVsIEFuZ2VsIiwiaWF0IjoxNjYxMzc4NDc2LCJleHAiOjE2NjEzODU2NzZ9.411sD2DGTKW6cNgXWs9UNU2Fmkg3rGHLtcdu1HvNViQ
+
+{
+  "title": "Agua para el cafe 2",
+  "start": 2000000,
+  "end": 3000000,
+  "notes": "pendiente pa las 7:30"
+}
+
+###
+/*========================================================================
+                  Eliminar Eventos
+========================================================================*/
+###
+DELETE  http://localhost:4001/api/events/6306967f784040d87e67c171 HTTP/1.1
+Content-Type: application/json
+x-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MzA1YTdkYjc4MzRmYzlmZDk3NjQyMDYiLCJuYW1lIjoiU29uaWEgUG9tYSIsImlhdCI6MTY2MTM3OTQ4NiwiZXhwIjoxNjYxMzg2Njg2fQ.7sqtCAXi8eg_q18xrAct-8ehkwT7zMWcQ7yc5GZG99M

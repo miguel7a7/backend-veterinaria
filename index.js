@@ -21,10 +21,11 @@ app.use(express.static('public'))
 // Lectura y parse de body
 app.use(express.json())
 
-// Rutas
+/*=== Inicio de: Rutas Auth ===*/
 app.use('/api/auth', require('./routes/auth'))
-// TODO: aith // crear, login, renew
-// TODO: CRUD: eventos
+
+/*=== Inicio de: Rutas Evento ===*/
+app.use('/api/events', require('./routes/eventos-calendario'))
 
 app.listen(port, () =>
   console.log(`El servidor se esta ejecutando en el Puerto: ${port}!`)

@@ -15,7 +15,7 @@ const crearUsuario = async (req, res = response) => {
     if (usuario) {
       return res.status(400).json({
         ok: false,
-        msg: 'Un usuario existe con ese email',
+        msg: 'Un usuario ya se registro con este email',
       })
     }
 
@@ -28,13 +28,13 @@ const crearUsuario = async (req, res = response) => {
     await usuario.save()
 
     /*=== Generar JWT ===*/
-    const token = await generarJWT(usuario.id, usuario.name)
+    const token = await generarJWT(usuario.id, usuario.nombres)
 
     res.status(201).json({
       ok: true,
       msg: 'Registro de usuario exitoso!!!',
       uid: usuario.id,
-      name: usuario.name,
+      nombres: usuario.nombres,
       token,
     })
   } catch (err) {
@@ -73,14 +73,14 @@ const loginUsuario = async (req, res) => {
     }
 
     /*=== Inicio de: Generar nuestro TOKEN ===*/
-    const token = await generarJWT(usuario.id, usuario.name)
+    const token = await generarJWT(usuario.id, usuario.nombres)
 
     /*=== Inicio de: Envio correcto del login ===*/
     res.status(200).json({
       ok: true,
-      msg: `Bienvenido ${usuario.name}`,
+      msg: `Bienvenido ${usuario.nombres}`,
       uid: usuario.id,
-      name: usuario.name,
+      nombres: usuario.nombres,
       token,
     })
   } catch (err) {
@@ -96,14 +96,16 @@ const loginUsuario = async (req, res) => {
          Funcion para revalidar y/o generar nuevo token de Usuario
 ========================================================================*/
 const reavalidarToken = async (req, res) => {
-  const { uid, name } = req
+  const { uid, nombres } = req
 
   /*=== Generar un nuevo token y retornarlo en esta peticio ===*/
-  const token = await generarJWT(uid, name)
+  const token = await generarJWT(uid, nombres)
 
   res.json({
     ok: true,
     token,
+    uid,
+    nombres,
   })
 }
 
