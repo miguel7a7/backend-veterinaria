@@ -5,9 +5,9 @@ const EventoCalendario = require('../models/EventoCalendario')
 ========================================================================*/
 const getEventos = async (req, res = response) => {
   /*=== populate('user', 'name') indica solo mostrar el name del user ===*/
-  const eventos = await EventoCalendario.find().populate('user', 'name')
+  const eventos = await EventoCalendario.find().populate('user', 'nombres')
 
-  res.json({
+  res.status(200).json({
     ok: true,
     msg: 'Peticios exitosa',
     eventos,
@@ -92,7 +92,7 @@ const actualizarEvento = async (req, res = response) => {
 }
 
 /*========================================================================
-                 Funcion para obtener eventos 
+                 Funcion para eliminar eventos 
 ========================================================================*/
 const eliminarEventos = async (req, res = response) => {
   const eventoId = req.params.id

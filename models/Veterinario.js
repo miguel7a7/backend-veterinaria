@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose')
 
-const UsuarioSchema = Schema({
+const VeterinarioSchema = Schema({
   nombres: {
     type: String,
     required: true,
@@ -11,12 +11,22 @@ const UsuarioSchema = Schema({
     required: true,
   },
 
-  email: {
+  cedula: {
     type: String,
     required: true,
-    unique: true,
   },
-  password: {
+
+  telefono: {
+    type: String,
+    required: true,
+  },
+
+  direccion: {
+    type: String,
+    required: true,
+  },
+
+  especialidad: {
     type: String,
     required: true,
   },
@@ -24,4 +34,4 @@ const UsuarioSchema = Schema({
   fecha_reg: { type: Date, default: Date.now },
 })
 
-module.exports = model('Usuario', UsuarioSchema)
+module.exports = model('Veterinario', VeterinarioSchema)
